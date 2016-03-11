@@ -1,0 +1,15 @@
+{
+  "name": "learnyounode",
+  "version": "1.0.0",
+  "description": "Learn you node tasks",
+  "main": "async.js",
+  "dependencies": {
+    "bl": "^1.1.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
