@@ -6,22 +6,18 @@ var urls = process.argv.slice(2);
 var results = new Array(urls.length);
 
 for (var i = 0; i < urls.length; i++) {
- (function(i){
-    http.get(urls[i], function(response) {
-      requestHandler(response, i, checkRequests)
-    });
-  })(i);
+  httpGet(urls[i], i);
 }
 
-function requestHandler(request, requestNumber, callback) {
-  var blist = new bufferList();
-  request.setEncoding('utf8');
-  request.on('data', function(data) {
-    blist.append(new Buffer(data));
-  });
-  request.on('end', function() {
-      results[requestNumber] = blist.toString();
-      checkRequests(results)
+function httpGet(url, index) {
+  http.get(url, function(response) {
+    response.pipe(bufferList(function(err, data){
+      if(err) {
+        return console.error(err);
+      }
+      results[index] = data.toString();
+      checkRequests(results);
+    }));
   });
 }
 
