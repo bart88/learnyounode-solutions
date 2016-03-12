@@ -4,7 +4,8 @@
   "description": "Learn you node tasks",
   "main": "async.js",
   "dependencies": {
-    "bl": "^1.1.2"
+    "bl": "^1.1.2",
+    "through2-map": "^2.0.0"
   },
   "devDependencies": {},
   "scripts": {
